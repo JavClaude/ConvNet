@@ -69,4 +69,4 @@ class ConvNet(nn.Module):
         inputs = self.third_conv_block(inputs)
         pre_logits = self.linear_block(inputs.view(inputs.size()[0], -1))
 
-        return tuple((inputs, pre_logits))
+        return inputs, pre_logits
