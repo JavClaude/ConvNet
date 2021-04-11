@@ -1,3 +1,4 @@
+import json
 import logging
 import argparse
 
@@ -60,6 +61,10 @@ def main(**kwargs) -> None:
         train_model(model, train_loader, criterion, optimizer)
         eval_model(model, test_loader, criterion)
 
+    with open("config_file.json", "w") as file:
+        json.dump(kwargs, file)
+
+    torch.save(model, "model.pt")
 
 if __name__ == "__main__":
     argument_parser = argparse.ArgumentParser()
