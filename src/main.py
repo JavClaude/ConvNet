@@ -52,7 +52,7 @@ def main(**kwargs) -> None:
     test_sampler = SequentialSampler(test_dataset)
     test_loader = DataLoader(test_dataset, kwargs["batch_size"], sampler = test_sampler)
 
-    model = ConvNet(1, 10)
+    model = ConvNet(**kwargs)
     criterion = CrossEntropyLoss()
     optimizer = Adam(model.parameters(), lr = kwargs["learning_rate"])
 
@@ -60,8 +60,11 @@ def main(**kwargs) -> None:
         train_model(model, train_loader, criterion, optimizer)
         eval_model(model, test_loader, criterion)
 
+
 if __name__ == "__main__":
     argument_parser = argparse.ArgumentParser()
+    argument_parser.add_argument("--in_channels", type=int, required=False, default=1)
+    argument_parser.add_argument("--n_classes", type=int, required=False, default=10)
     argument_parser.add_argument("--epochs", type=int, required=False, default=2)
     argument_parser.add_argument("--batch_size", type=int, required=False, default=128)
     argument_parser.add_argument("--learning_rate", type=float, required=False, default=0.0001)
