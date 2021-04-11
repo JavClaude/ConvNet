@@ -25,7 +25,7 @@ def train_model(model: Module, dataloader: DataLoader, criterion: Module, optimi
         loss = criterion(predictions, batch[1])
         loss.backward()
 
-        if i % 300 == 0:
+        if i % 50 == 0:
             logger.warning("Loss: {}, at iteration: {}".format(loss.item(), i))
 
         optimizer.step()
@@ -43,5 +43,5 @@ def eval_model(model: Module, dataloader: DataLoader, criterion: Module) -> None
 
             loss = criterion(predictions, batch[1])
 
-            if i % 100 == 0:
+            if i % 20 == 0:
                 logger.warning("Loss: {}, at iteration: {}".format(loss.item(), i))
