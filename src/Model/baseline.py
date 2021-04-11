@@ -14,8 +14,9 @@ class ConvNet(nn.Module):
         n_classes (int) number of classes to predict
     """
     def __init__(self,
-                channels_in: int,
-                n_classes: int) -> None:
+                in_channels: int,
+                n_classes: int,
+                **kwargs) -> None:
         super(ConvNet, self).__init__()
 
         # [(W−K+2P)/S]+1
