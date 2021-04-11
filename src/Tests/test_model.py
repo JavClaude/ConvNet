@@ -1,7 +1,9 @@
 import torch
+
 from src.Model.baseline import ConvNet
 
 device = "cpu"
+
 
 def test_forward_pass():
     test_model = ConvNet(1, 9)
