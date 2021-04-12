@@ -64,7 +64,7 @@ def main(**kwargs) -> None:
     with open("config_file.json", "w") as file:
         json.dump(kwargs, file)
 
-    torch.save(model, "model.pt")
+    torch.save(model.state_dict(), "model.pt")
 
 if __name__ == "__main__":
     argument_parser = argparse.ArgumentParser()
