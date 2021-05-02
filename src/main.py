@@ -1,10 +1,9 @@
+import argparse
 import json
 import logging
-import argparse
 
 import tqdm
 import torch
-
 from torch.optim import Adam
 from torch.nn import CrossEntropyLoss
 
