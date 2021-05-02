@@ -22,7 +22,7 @@ class ConvNet(nn.Module):
         # [(W−K+2P)/S]+1
 
         self.first_conv_block = nn.Sequential(
-            nn.Conv2d(in_channels=channels_in, out_channels=32, kernel_size=(3, 3), padding=1),
+            nn.Conv2d(in_channels=in_channels, out_channels=32, kernel_size=(3, 3), padding=1),
             nn.ReLU(),
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=(3, 3), padding=1),
             nn.ReLU(),
